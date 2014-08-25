@@ -1,4 +1,4 @@
-package de.kimrudolph.tutorials.utils;
+package  com.thysmichels.websockets.utils;
 
 import java.util.Random;
 
@@ -10,14 +10,12 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RandomDataGenerator implements
-    ApplicationListener<BrokerAvailabilityEvent> {
+public class RandomDataGenerator implements ApplicationListener<BrokerAvailabilityEvent> {
 
     private final MessageSendingOperations<String> messagingTemplate;
 
     @Autowired
-    public RandomDataGenerator(
-        final MessageSendingOperations<String> messagingTemplate) {
+    public RandomDataGenerator(final MessageSendingOperations<String> messagingTemplate) {
         this.messagingTemplate = messagingTemplate;
     }
 
@@ -27,9 +25,6 @@ public class RandomDataGenerator implements
 
     @Scheduled(fixedDelay = 1000)
     public void sendDataUpdates() {
-
-        this.messagingTemplate.convertAndSend(
-            "/data", new Random().nextInt(100));
-
+        this.messagingTemplate.convertAndSend("/data", new Random().nextInt(100));
     }
 }

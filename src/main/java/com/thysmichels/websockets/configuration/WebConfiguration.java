@@ -1,4 +1,4 @@
-package de.kimrudolph.tutorials.configuration;
+package  com.thysmichels.websockets.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;

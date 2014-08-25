@@ -1,4 +1,4 @@
-spring-mvc-websockets
+CloudSole-Metrics
 ===============
 
-Code for http://kimrudolph.de/blog/spring-4-websockets-tutorial/
+

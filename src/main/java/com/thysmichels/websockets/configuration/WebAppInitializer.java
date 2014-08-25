@@ -1,4 +1,4 @@
-package de.kimrudolph.tutorials.configuration;
+package  com.thysmichels.websockets.configuration;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -17,16 +17,13 @@ public class WebAppInitializer implements WebApplicationInitializer {
 
         final AnnotationConfigWebApplicationContext root = new AnnotationConfigWebApplicationContext();
 
-        root.scan("de.kimrudolph.tutorials");
+        root.scan("com.thysmichels.websockets");
 
         context.addListener(new ContextLoaderListener(root));
 
-        final ServletRegistration.Dynamic appServlet = context.addServlet(
-            "appServlet",
-            new DispatcherServlet(new GenericWebApplicationContext()));
+        final ServletRegistration.Dynamic appServlet = context.addServlet("appServlet",new DispatcherServlet(new GenericWebApplicationContext()));
         appServlet.setAsyncSupported(true);
         appServlet.setLoadOnStartup(1);
         appServlet.addMapping("/*");
     }
-
 }
